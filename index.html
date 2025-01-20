@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hayley的祝福</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Home Page -->
+    <section id="home" class="page active">
+      <h1>Hayley的祝福</h1>
+      <div class="video-container">
+        <video src="祝福影片.mp4" controls autoplay muted></video>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage('home')">回首頁</button>
+        <button class="nav-btn" onclick="showPage('blessing')">生成祝福</button>
+        <button class="nav-btn" onclick="showPage('creation')">我的創作</button>
+      </div>
+    </section>
+
+    <!-- Blessing Page -->
+    <section id="blessing" class="page">
+      <h2>一鍵生成Hayley的祝福</h2>
+      <button id="generate-btn">生成</button>
+      <div id="blessing-box"></div>
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage('home')">回首頁</button>
+        <button class="nav-btn" onclick="showPage('blessing')">生成祝福</button>
+        <button class="nav-btn" onclick="showPage('creation')">我的創作</button>
+      </div>
+    </section>
+
+    <!-- Creation Page -->
+    <section id="creation" class="page">
+      <h2>兒童英文童話故事電子書創作</h2>
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/O7RinKYaMn0" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage('home')">回首頁</button>
+        <button class="nav-btn" onclick="showPage('blessing')">生成祝福</button>
+        <button class="nav-btn" onclick="showPage('creation')">我的創作</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="marquee">
+        <span>~Hayley祝您2025年~蛇來運轉~有蛇有得~蛇機妙算~蛇拿九稳</span>
+      </div>
+      <div class="credits">此網站由Hayley Liu製作</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

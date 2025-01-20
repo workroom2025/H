@@ -1,0 +1,230 @@
+:root {
+  --primary-color: #00008B; /* 深藍色 */
+  --secondary-color: #800080; /* 紫色 */
+  --accent-color: #FFC0CB; /* 粉紅色 */
+  --button-color: #ADD8E6; /* 淡藍色 */
+  --button-hover: #FFD700; /* 金色 */
+  --text-color: #00008B; /* 深藍色 */
+  --background-color: #FFFFE0; /* 淡黃色 */
+  --blessing-box-bg: rgba(255, 255, 224, 0.8); /* 淡黃色透明 */
+  --marquee-colors: #FF0000, #800080, #00008B, #008000, #FF1493; /* 跑馬燈顏色 */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Microsoft JhengHei', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.page.active {
+  display: flex;
+}
+
+h1 {
+  font-size: 26px;
+  color: var(--primary-color);
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--secondary-color);
+  margin: 20px 0;
+}
+
+.video-container {
+  width: 30%; /* Reduced to 1/2 size */
+  margin: 40px auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Home page video */
+#home .video-container video {
+  width: 130%;
+  max-width: 390px; /* 300px * 1.3 */
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+/* Creation page video - increased by 1.5x */
+#creation .video-container {
+  width: 45%;
+}
+
+/* Creation page video - 4:3 aspect ratio */
+#creation .video-container {
+  aspect-ratio: 4/3;
+}
+
+video, iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  object-fit: cover;
+}
+
+.blessing-text {
+  font-family: 'DFKai-SB', serif;
+  font-size: 3vw; /* Increased by 2x */
+  text-align: center;
+  line-height: 1.5;
+  margin: 10px 0;
+  opacity: 0;
+  animation: textFadeIn 0.3s forwards;
+  white-space: pre-line;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.nav-btn, #generate-btn {
+  background-color: var(--button-color);
+  color: #8B0000;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.nav-btn:hover, #generate-btn:hover {
+  background: linear-gradient(to right, var(--button-color), var(--button-hover));
+  transform: scale(1.05);
+}
+
+#generate-btn {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 13px;
+  margin: 20px 0;
+}
+
+#blessing-box {
+  background-color: var(--blessing-box-bg);
+  border: 2px solid var(--button-color);
+  padding: 12px;
+  margin: 18px 13px;
+  width: 80%;
+  min-height: 200px;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+.blessing-text {
+  font-family: 'DFKai-SB', serif;
+  font-size: 24px;
+  text-align: center;
+  line-height: 1.5;
+  margin: 20px 0;
+  opacity: 0;
+  animation: textFadeIn 0.3s forwards;
+  white-space: pre-line;
+}
+
+@keyframes textFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.marquee span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+  font-size: 28px;
+  font-weight: bold;
+  background: linear-gradient(to right, var(--marquee-colors));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+.credits {
+  font-family: 'DFKai-SB', serif;
+  font-size: 13px;
+  color: var(--button-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-container {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .blessing-text {
+    font-size: 20px;
+  }
+}
